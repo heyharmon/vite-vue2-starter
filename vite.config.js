@@ -1,10 +1,7 @@
 import path from "path";
 import { defineConfig } from "vite";
-import { createVuePlugin } from "vite-plugin-vue2";
-import WindiCSS from "vite-plugin-windicss";
+import { createVuePlugin as Vue2 } from "vite-plugin-vue2";
 import Components from "unplugin-vue-components/vite";
-import Icons from "unplugin-icons/vite";
-import IconsResolver from "unplugin-icons/resolver";
 
 const config = defineConfig({
   resolve: {
@@ -19,16 +16,8 @@ const config = defineConfig({
   },
 
   plugins: [
-    createVuePlugin(),
-    WindiCSS(),
-    Components({
-      resolvers: [
-        IconsResolver({
-          componentPrefix: "",
-        }),
-      ],
-    }),
-    Icons(),
+    Vue2(),
+    Components(),
   ],
 
   server: {
