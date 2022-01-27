@@ -1,6 +1,7 @@
 import path from "path";
 import { defineConfig } from "vite";
-import { createVuePlugin as Vue2 } from "vite-plugin-vue2";
+import { createVuePlugin as Vue } from "vite-plugin-vue2";
+import ScriptSetup from 'unplugin-vue2-script-setup/vite'
 import Components from "unplugin-vue-components/vite";
 
 const config = defineConfig({
@@ -16,15 +17,14 @@ const config = defineConfig({
   },
 
   plugins: [
-    Vue2(),
+    Vue(),
+    ScriptSetup(),
     Components(),
   ],
 
   server: {
     port: 8080,
-    hmr: {
-        overlay: false
-    }
+    // hmr: { overlay: false }
   },
 });
 

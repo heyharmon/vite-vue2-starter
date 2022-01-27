@@ -9,15 +9,12 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue-demi";
+<script setup lang="ts">
+import { defineProps } from 'vue-demi'
 
-export default defineComponent({
-  name: "Feature",
-  props: {
+const props = defineProps({
     title: { type: String, required: true },
     text: { type: String, required: true },
     url: { type: String, required: true },
-  },
-});
+})
 </script>
