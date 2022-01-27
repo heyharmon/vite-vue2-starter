@@ -1,15 +1,19 @@
-import Vue from "vue";
-import App from "@/App.vue";
-import { createApp, h } from "vue-demi";
+import Vue from 'vue'
+import App from '@/App.vue'
+import { createApp, h } from 'vue-demi'
+import { createPinia, PiniaVuePlugin } from 'pinia'
+import router from '@/router'
 
-import router from "@/router";
+Vue.config.productionTip = false
+Vue.config.devtools = true
 
-Vue.config.productionTip = false;
-Vue.config.devtools = true;
+const pinia = createPinia()
 
 const app = createApp({
-  router,
-  render: () => h(App),
+    router,
+    pinia,
+    render: () => h(App),
 });
 
-app.mount("#app");
+app.use(PiniaVuePlugin)
+app.mount("#app")
