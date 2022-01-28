@@ -14,6 +14,7 @@
     "codyhouse-framework": "^3.0.4",
     "core-js": "^3.18.3",
     "pinia": "^2.0.10",
+    "v-codyhouse-componentz": "^1.0.16",
     "vue": "^2.6.14",
     "vue-demi": "^0.11.4",
     "vue-router": "^3.5.2"
