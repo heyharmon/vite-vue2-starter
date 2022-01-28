@@ -7,6 +7,8 @@ declare module 'vue' {
     ButtonPrimary: typeof import('./../components/shared/ButtonPrimary.vue')['default']
     Feature: typeof import('./../components/Feature.vue')['default']
     Navbar: typeof import('./../components/Navbar.vue')['default']
+    VButton: typeof import('./../components/shared/VButton.vue')['default']
+    VCard: typeof import('./../components/VCard.vue')['default']
   }
 }
 
