@@ -1,31 +1,90 @@
-import path from "path";
-import { defineConfig } from "vite";
-import { createVuePlugin as Vue } from "vite-plugin-vue2";
+import path from "path"
+import { defineConfig } from "vite"
+import { createVuePlugin as Vue2 } from "vite-plugin-vue2"
 import ScriptSetup from 'unplugin-vue2-script-setup/vite'
-import Components from "unplugin-vue-components/vite";
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from "unplugin-vue-components/vite"
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 
 const config = defineConfig({
-  resolve: {
-    alias: {
-      "@": `${path.resolve(__dirname, "src")}`,
+    resolve: {
+        alias: {
+            "@": `${path.resolve(__dirname, "src")}`,
+        },
+        dedupe: ["vue-demi"],
     },
-    dedupe: ["vue-demi"],
-  },
 
-  build: {
-    minify: true,
-  },
+    build: {
+        minify: true,
+    },
 
-  plugins: [
-    Vue(),
-    ScriptSetup(),
-    Components(),
-  ],
+    plugins: [
+        /**
+        * Vue 2 plugin for Vite
+        * https://github.com/underfin/vite-plugin-vue2
+        */
+        Vue2(),
 
-  server: {
-    port: 8080,
-    // hmr: { overlay: false }
-  },
-});
+        /**
+        * Bring <script setup> to Vue 2
+        * https://github.com/antfu/unplugin-vue2-script-setup
+        */
+        ScriptSetup(),
 
-export default config;
+        /**
+        * Auto import APIs as they are used in <script setup>
+        * API Examples: ref, reactive, router, etc
+        * https://github.com/antfu/unplugin-auto-import
+        */
+        AutoImport({
+            imports: [
+                'vue-demi',
+                'vue-router',
+                '@vueuse/core',
+            ],
+
+            dts: 'src/vite/auto-imports.d.ts',
+        }),
+
+        /**
+        * Auto import components as they are used in markup
+        * https://github.com/antfu/unplugin-vue-components
+        */
+        Components({
+            extensions: ['vue'],
+
+            resolvers: [
+                /**
+                * Resolve unplugin-icons as components
+                * Enable IBM Carbon collection
+                * https://github.com/antfu/unplugin-icons
+                */
+                IconsResolver({
+                    prefix: false,
+                    enabledCollections: ['carbon']
+                }),
+            ],
+
+            dts: 'src/vite/components.d.ts',
+        }),
+        
+        /**
+        * Access thousands of icons as components on-demand universally.
+        * https://github.com/antfu/unplugin-icons
+        */
+        Icons({
+            autoInstall: true,
+        }),
+    ],
+
+    server: {
+        port: 8080,
+        hmr: { 
+            // Don't show HMR errors on screen, only console
+            overlay: false 
+        }
+    }
+})
+
+export default config
