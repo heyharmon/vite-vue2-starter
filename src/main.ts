@@ -3,6 +3,7 @@ import App from "@/App.vue"
 import { createApp, h } from "vue-demi"
 import { createPinia, PiniaVuePlugin } from 'pinia'
 import router from "@/router"
+
 import '@/styles/styles.scss'
 
 Vue.config.productionTip = false
