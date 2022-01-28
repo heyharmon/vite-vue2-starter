@@ -4,13 +4,16 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    ButtonPrimary: typeof import('./../components/shared/ButtonPrimary.vue')['default']
-    CarbonCampsite: typeof import('~icons/carbon/campsite')['default']
-    Card: typeof import('./../components/Card.vue')['default']
-    Feature: typeof import('./../components/Feature.vue')['default']
-    Navbar: typeof import('./../components/Navbar.vue')['default']
-    VButton: typeof import('./../components/shared/VButton.vue')['default']
-    VCard: typeof import('./../components/VCard.vue')['default']
+    App: typeof import('./../App.vue')['default']
+    App404: typeof import('./../app/views/app-404.vue')['default']
+    AppButton: typeof import('./../app/components/shared/AppButton.vue')['default']
+    AppCard: typeof import('./../app/components/AppCard.vue')['default']
+    AppNavbar: typeof import('./../app/components/AppNavbar.vue')['default']
+    LayoutSidebar: typeof import('./../app/layouts/layout-sidebar.vue')['default']
+    PagesIndex: typeof import('./../pages/views/pages-index.vue')['default']
+    PagesShow: typeof import('./../pages/views/pages-show.vue')['default']
+    VButton: typeof import('./../app/components/shared/VButton.vue')['default']
+    VCard: typeof import('./../app/components/VCard.vue')['default']
     VNavbar: typeof import('./../components/VNavbar.vue')['default']
   }
 }

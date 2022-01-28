@@ -1,7 +1,7 @@
 <template>
-    <div class="container max-width-adaptive-lg">
+    <div>
         <div class="margin-bottom-md">
-            <h1>About</h1>
+            <h1>404 Page</h1>
         </div>
     </div>
 </template>

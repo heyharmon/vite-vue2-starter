@@ -1,37 +1,21 @@
-import Vue from "vue";
-import VueRouter, { RouteConfig } from 'vue-router';
-import sampleRouteGroup from '@/routes/sample.js'
+import Vue from 'vue'
+import VueRouter, { RouteConfig } from 'vue-router'
 
-Vue.use(VueRouter);
+// Import route groups
+import pagesRoutes from '@/pages/routes.js'
+import appRoutes from '@/app/routes.js'
+
+Vue.use(VueRouter)
 
 export const routes: RouteConfig[] = [
-    ...sampleRouteGroup
+    ...pagesRoutes,
+    ...appRoutes,
 ];
 
 const router = new VueRouter({
-    base: "/",
-    mode: "history",
+    base: '/',
+    mode: 'history',
     routes,
-});
+})
 
-export default router;
-
-// import Vue from 'vue';
-// import VueRouter, { RouteConfig } from 'vue-router';
-// 
-// // import { default as sampleRoutes } from '@/router/sample.js'
-// import sampleRoutes from '@/router/sample.js'
-// 
-// Vue.use(VueRouter);
-// 
-// export const routes: createRouter[] = [
-//     ...sampleRoutes
-// ];
-// 
-// const router = new VueRouter({
-//     base: "/",
-//     mode: "history",
-//     routes,
-// });
-// 
-// export default router;
+export default router

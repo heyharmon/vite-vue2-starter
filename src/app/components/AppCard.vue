@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue-demi'
 
-const props = defineProps({
+defineProps({
     title: { type: String, required: true },
     text: { type: String, required: true },
     url: { type: String, required: true },

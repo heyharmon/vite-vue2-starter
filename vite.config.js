@@ -30,7 +30,7 @@ const config = defineConfig({
                  * without having to explicit import them.
                  * https://vitejs.dev/config/#css-preprocessoroptions
                  */
-                additionalData: `@import './src/styles/resources';`
+                additionalData: `@import './src/app/styles/resources';`
             }
         }
     },
@@ -69,7 +69,9 @@ const config = defineConfig({
         */
         Components({
             extensions: ['vue'],
-
+            dirs: [
+                'src/*/components'
+            ],
             resolvers: [
                 /**
                 * Resolve unplugin-icons as components
@@ -98,7 +100,7 @@ const config = defineConfig({
         port: 8080,
         hmr: { 
             // Don't show HMR errors on screen, only console
-            overlay: false 
+            // overlay: false 
         }
     }
 })
