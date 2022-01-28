@@ -10,6 +10,7 @@
   "dependencies": {
     "@vue/composition-api": "^1.2.4",
     "@vueuse/core": "^6.5.3",
+    "axios": "^0.25.0",
     "codyhouse-framework": "^3.0.4",
     "core-js": "^3.18.3",
     "pinia": "^2.0.10",
