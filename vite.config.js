@@ -19,9 +19,17 @@ const config = defineConfig({
         minify: true,
     },
     
+    /**
+     * Configure how css is handled by Vite
+     */
     css: {
         preprocessorOptions: {
             scss: {
+                /**
+                 * Share common variables among all processed files
+                 * without having to explicit import them.
+                 * https://vitejs.dev/config/#css-preprocessoroptions
+                 */
                 additionalData: `@import './src/styles/resources';`
             }
         }
