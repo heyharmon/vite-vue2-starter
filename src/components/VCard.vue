@@ -10,7 +10,7 @@
         </figure>
         <h3 class="text-md">{{ title }}</h3>
         <p class="color-contrast-medium line-height-md margin-y-xs">{{ text }}</p>
-        <p :to="url" class="text-right color-primary margin-top-auto">View →</p>
+        <p v-if="url" :to="url" class="text-right color-primary margin-top-auto">View →</p>
     </RouterLink>
 </template>
 

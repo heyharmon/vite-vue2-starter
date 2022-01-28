@@ -1,14 +1,11 @@
 <template>
   <header>
-    <div style="display: flex; flex-direction: row; justify-content: center; align-items: baseline; gap: 20px;">
-      <div>
+    <div class="flex flex-row flex-center items-center gap-md padding-top-sm">
+      <RouterLink to="/">
         <img alt="Vite logo" src="@/assets/vite-logo.svg" width="36px" />
-        <span class="margin-left-sm">
-          {{ appName }}
-        </span>
-    </div>
+    </RouterLink>
       
-      <nav style="display: flex; gap: 20px;">
+      <nav class="flex flex-row flex-center items-center gap-md">
         <RouterLink
           v-for="(route, index) in availableRoutes"
           :key="index"
@@ -17,7 +14,7 @@
           {{ route.name }}
         </RouterLink>
         
-        <button @click="toggle">
+        <button @click="toggle" class="btn btn--sm">
           <span v-if="isDark">Dark</span>
           <span v-else>Light</span>
         </button>
@@ -31,7 +28,7 @@ import { computed } from 'vue-demi'
 import { routes } from '@/router'
 import { useDark, useToggle } from "@vueuse/core"
 
-const appName = import.meta.env.VITE_APP_NAME;
+
 
 const availableRoutes = routes.filter((route) => route.name != "NotFound");
 
