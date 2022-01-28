@@ -1,11 +1,12 @@
-import Vue from "vue";
-import App from "@/App.vue";
-import { createApp, h } from "vue-demi";
+import Vue from "vue"
+import App from "@/App.vue"
+import { createApp, h } from "vue-demi"
 import { createPinia, PiniaVuePlugin } from 'pinia'
-import router from "@/router";
+import router from "@/router"
+import '@/styles/styles.scss'
 
-Vue.config.productionTip = false;
-Vue.config.devtools = true;
+Vue.config.productionTip = false
+Vue.config.devtools = true
 
 const pinia = createPinia()
 
